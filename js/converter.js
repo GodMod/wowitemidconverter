@@ -28,7 +28,7 @@ function buildBonusIdFields(){
 				if (val == ""){val = 0;}
 				bonus[index] = val;
 			})
-			wowID = wowID + bonus.join(':');
+			wowID = wowID + ':' + bonus.join(':');
 		}
 
 		//Create WoW Link
