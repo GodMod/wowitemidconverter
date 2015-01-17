@@ -21,13 +21,13 @@ function buildBonusIdFields(){
 		$('#upgradeID').val() + ':' +
 		$('#instanceDifficultyID').val() + ':' +
 		$('#numBonusIDs').val();
-		if($('#numBonusIDs').val()){
+		if($('#numBonusIDs').val() > 0){
 			var bonus = new Array();
 			$('.bonusID').each(function(index){
 				var val = $(this).val();
 				if (val == ""){val = 0;}
 				bonus[index] = val;
-			})
+			})		
 			wowID = wowID + ':' + bonus.join(':');
 		}
 
@@ -118,7 +118,11 @@ function buildBonusIdFields(){
     			    }
 
     				var mainid = searchObject.item;
-    				var bonusArray = searchObject.bonus.split(':');
+					if(searchObject.bonus && searchObject.bonus != "") {
+						var bonusArray = searchObject.bonus.split(':');
+					} else {
+						var bonusArray = new Array();
+					}
     				var numBonusIDs = bonusArray.length;
     				
     				//Fill fields
